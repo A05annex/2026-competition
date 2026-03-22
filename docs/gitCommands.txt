@@ -1,0 +1,27 @@
+GIT HUB COMMANDS
+
+git status
+
+- tells me where I am, and which files are modified, added or deleted
+
+git checkout
+
+- changes my branch
+
+git checkout -b <nameOfBranch>
+
+- creates a new branch and takes me there
+
+git push
+
+- pushes the code to the internet
+
+git add <file path and name>
+
+- packages a singular file of my code to send to the internet
+
+git add .
+
+- packages ALL of my code to send to the internet
+
+git commit -m “<description of my code>”
