@@ -35,9 +35,18 @@ public class Drive extends Command {
   // controllable.
   @Override
   public void execute() {
-    //if controller.button is pusehd
+
+    // scales the drive speed during a game based on driver inputs
+    // left is slower, right is faster
+    double activeDriveScaling = 1;
+    boolean pressingLeftBump = controller.leftBumper().getAsBoolean();
+    boolean pressingRightBump = controller.rightBumper().getAsBoolean();
+    if (pressingLeftBump) {activeDriveScaling += ACTIVE_DECREASE_DRIVE_SCALE_MODIFIER;}
+    if (pressingRightBump) {activeDriveScaling += ACTIVE_INCREASE_DRIVE_SCALE_MODIFIER;}
+  
+    //if controller.button is pushed
     // set scale to what is desired
-    driveSubsystem.driveArcade(controller.getLeftY() * DRIVE_SCALING, controller.getRightX() * ROTATION_SCALING);
+    driveSubsystem.driveArcade(controller.getLeftY() * DRIVE_SCALING * activeDriveScaling, controller.getRightX() * ROTATION_SCALING * activeDriveScaling);
   }
 
   // Called once the command ends or is interrupted.

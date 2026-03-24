@@ -48,7 +48,7 @@ public class CANDriveSubsystem extends SubsystemBase {
     SparkMaxConfig config = new SparkMaxConfig();
     config.voltageCompensation(12);
     config.smartCurrentLimit(DRIVE_MOTOR_CURRENT_LIMIT);
-    config.idleMode(SparkMaxConfig.IdleMode.kBrake);
+    config.idleMode(SparkMaxConfig.IdleMode.kCoast);
 
     // Set configuration to follow each leader and then apply it to corresponding
     // follower. Resetting in case a new controller is swapped
